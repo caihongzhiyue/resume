@@ -1,9 +1,199 @@
+//最后一页的button按钮
 .swiper-container{
 	.swiper-wrapper{
 		.swiper-slide{
-			button{
-				background:#abcdef;
+			#enter{
+			    width: 100px;
+			    height: 30px;
+			    line-height: 30px;
+			    background: #b50;
+			    border-radius: 8px;
+			    color: #fff;
+			    border: 0;
+			    outline: none;
+			    font-weight: 900;
+			    position: absolute;
+			    bottom: 8%;
+			    margin-left: -50px;
 			}
 		}
 	}
+}
+//这是预加载页面
+#preload {
+	display: block;
+    width: 100%;
+    height:100%;
+    background:#EE82EE;
+    padding-top: 200px;
+    font-size: 50px;
+    text-align: center;
+    color: #fff;
+	div {
+		width: 30px;
+		height: 30px;
+		background-color: #67CF22;
+		border-radius: 100%;
+		display: inline-block;
+		-webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+		animation: bouncedelay 1.4s infinite ease-in-out;
+		-webkit-animation-fill-mode: both;
+		animation-fill-mode: both;
+	}
+	.bounce1 {
+		-webkit-animation-delay: -0.32s;
+		animation-delay: -0.32s;
+	}
+	.bounce2 {
+		-webkit-animation-delay: -0.16s;
+		animation-delay: -0.16s;
+	}
+}
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0.0) }
+  40% { -webkit-transform: scale(1.0) }
+}	 
+
+//swiper  页面
+#swiper-one{
+    width: 100%;
+    height: 100%;
+    background:#abcdef url(../images/swiper-one-bg.jpg) no-repeat; 
+    background-size: cover; 
+    background-position: 50% 50%; 
+    background-origin: content-box;
+	.swiper-one-pic{
+	    width: 100%;
+	    height: 200px;
+	    margin-top: 80px;
+	    overflow: hidden;
+	    text-align: center;
+	    padding-top: 25px;
+	    img{
+		    width: 150px;
+		    height: 150px;
+		    border-radius: 50%;
+		    padding: 5px;
+		    border: 3px solid #abcdef;
+		}
+	}
+	.swiper-one-txt{
+	    margin-top: 50px;
+	    color: #fff;
+	}
+}	 
+h2{
+    padding-top: 10px;
+    color: #fff;
+    font-size:26px;
+}
+
+#swiper-two{
+    width: 100%;
+    height: 100%;
+    color: #800;
+    z-index: 2;
+    .swiper-two-list{
+        width: 100%;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 900;
+        flex-flow: row wrap;
+        .swiper-two-lists{
+		    width: 50%;
+		    height: 200px;
+		    display: flex;
+		    flex-flow: column;
+		    align-items: center;
+		    justify-content: center;
+		    overflow: hidden;
+		    img{
+		    	width:auto;
+		    	height: 78px;
+		    }
+		    span{
+		        display: block;
+		        width: 100%;
+		    }
+		    p{
+		        width: 100%;
+		    }
+		}
+    }
+}	 
+.swiper-two-bg{
+	width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    opacity:0.6;
+    .swiper-two-opacity{
+		width: 100%;
+	    height: 100%;
+	    background:url(../images/swiper-three-bg.jpg) no-repeat;
+	    background-size: cover; 
+	    background-position: 50% 50%; 
+	    background-origin: content-box;
+	}	
+}
+#swiper-three{
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    font-size:14px;
+    .swiper-three{
+    	width: 100%;
+    	.swiper-top{
+    		display: flex;
+    		align-items:center;
+    		justify-content:center;
+    		a{
+    			flex:1;
+    			img{
+					width: 50px;
+				}
+				h4{
+					color:#444;
+				}
+    		}
+    	}
+    	.swiper-bottom{
+    		width:100%;
+    		height: 320px;
+			text-align: left;
+			text-indent: 20px;
+			padding: 10px 10px 0;
+			line-height:20px;
+			color:#333;
+			animation:txt-animation 4s linear;
+			overflow: hidden;
+    	}
+    }
+}
+@keyframes txt-animation{
+	0% {height:0;}
+	100% {height:320px}
+}
+.swiper-three-bg{
+	width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    opacity:0.6;
+    .swiper-three-opacity{
+		width: 100%;
+	    height: 100%;
+	    background:url(../images/swiper-two-bg.jpg) no-repeat;
+	    background-size: cover; 
+	    background-position: 50% 50%; 
+	    background-origin: content-box;
+	}	
 }

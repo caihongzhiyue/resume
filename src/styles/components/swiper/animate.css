@@ -2013,8 +2013,8 @@ Copyright (c) 2015 Daniel Eden
   0% {
     -webkit-transform-origin: center;
     transform-origin: center;
-    -webkit-transform: rotate3d(0, 0, 1, -200deg);
-    transform: rotate3d(0, 0, 1, -200deg);
+    -webkit-transform: rotate3d(0, 0, 1, -100deg);
+    transform: rotate3d(0, 0, 1, -100deg);
     opacity: 0;
   }
 
@@ -2031,8 +2031,8 @@ Copyright (c) 2015 Daniel Eden
   0% {
     -webkit-transform-origin: center;
     transform-origin: center;
-    -webkit-transform: rotate3d(0, 0, 1, -200deg);
-    transform: rotate3d(0, 0, 1, -200deg);
+    -webkit-transform: rotate3d(0, 0, 1, -100deg);
+    transform: rotate3d(0, 0, 1, -100deg);
     opacity: 0;
   }
 
@@ -3181,6 +3181,7 @@ Copyright (c) 2015 Daniel Eden
 }
 
 
+/*==================================*/
 .turnInDown {
   -webkit-animation-name: turnInDown;
   animation-name: turnInDown;
@@ -3213,3 +3214,64 @@ Copyright (c) 2015 Daniel Eden
     transform-origin: 50% 0;
   }
 }
+.rotateself{
+  -webkit-animation-name: rotateself;
+  animation-name: rotateself;
+}
+@-webkit-keyframes rotateself {
+  0% {
+    -webkit-transform:translateX(-100%) rotate(-180deg);
+  }
+  100% {
+    -webkit-transform:translateX(0px) rotateX(0deg);
+  }
+}
+@keyframes rotateself {
+  0% {
+    transform:translateX(-100%) rotate(-180deg);
+  }
+  100% {
+    transform:translateX(0px) rotateX(0deg);
+  }
+}
+
+.rotateIn-2 {
+  -webkit-animation-name: rotateIn-2;
+  animation-name: rotateIn-2;
+}
+@-webkit-keyframes rotateIn-2 {
+  0% {
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    -webkit-transform: rotate3d(0, 0, 1, 2200deg);
+    transform: rotate3d(0, 0, 1, 2200deg);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    -webkit-transform: none;
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@keyframes rotateIn-2 {
+  0% {
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    -webkit-transform: rotate3d(0, 0, 1, 2200deg);
+    transform: rotate3d(0, 0, 1, 2200deg);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    -webkit-transform: none;
+    transform: none;
+    opacity: 1;
+  }
+}
+

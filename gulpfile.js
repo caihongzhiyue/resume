@@ -68,6 +68,12 @@ gulp.task('webserver', function() {
 	      			res.end(data);
 	      		});
 	      		return;
+	      	case '/api/state':
+	      		res.setHeader("Content-Type",'application/json');
+	      		fs.readFile('mock/state.json','utf-8',function(err,data){
+	      			res.end(data);
+	      		});
+	      		return;
 	      	default:
 	      	;
       	}
@@ -83,7 +89,7 @@ gulp.task('copy-index',function(){
 
 gulp.task('sass',function(){
 	return gulp.src('./src/styles/*.scss')
-	.pipe(sass())
+	.pipe(sass().on('error', sass.logError))
 	.pipe(gulp.dest('www/css'));
 })
 
@@ -128,7 +134,7 @@ gulp.task('verJs',function(){
 
 //images的复制
 gulp.task('images',function(){
-	return gulp.src("./src/images/**")
+	return gulp.src("./src/images/*.*")
 	.pipe(gulp.dest('www/images'));
 })
 
@@ -144,7 +150,8 @@ gulp.task('watch',function(){
 	
 	gulp.watch('./src/index.html',['copy-index']);
 
-	gulp.watch('./src/images/**',['images']);
+	gulp.watch('./src/images/*.*',['images']);
+	
 	var queue = sequence(300);
 	watch('src/script/**/*.js',{
 		name:'JS',

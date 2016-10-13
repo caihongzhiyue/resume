@@ -1,14 +1,22 @@
-html,body,h2{
+html,body,h2，ul,li,h4,p{
     margin: 0;
     padding: 0;
 }
+a{
+    text-decoration: none;
+    -webkit-tap-highlight-color:transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;/*以上三个是处理移动端a标签tap时有阴影*/
+    color: #333;  /*点击会变红，设置颜色后就不变了*/
+}
+/*上面是样式重置*/
 html, body {
     position: relative;
     height: 100%;
 }
 body {
     background: #eee;
-    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-family: "微软雅黑", Helvetica, Arial, sans-serif;
     font-size: 14px;
     color:#000;
     margin: 0;
@@ -44,97 +52,3 @@ body {
     padding-right: 10px;
 }
 
-#preload{
-    display: block;
-    width: 100%;
-    height: 100%;
-    background: #ff0;
-    padding-top: 200px;
-    font-size: 50px;
-    text-align: center;
-    color: #fff;
-}
-
-#enter{
-    width: 100px;
-    height: 30px;
-    text-align: center;
-    line-height: 30px;
-    background: #abcdef;
-    border-radius: 8px;
-    color: #fff;
-    border: 0;
-    outline: none;
-}
-
-#swiper-one{
-    width: 100%;
-    height: 100%;
-    background:#abcdef url(../images/swiper-one-bg.jpg) no-repeat; 
-    background-size: cover; 
-    background-position: 50% 50%; 
-    background-origin: content-box;
-}
-h2{
-    padding-top: 30px;
-    color: #fff;
-}
-
-.swiper-one-pic{
-    width: 100%;
-    height: 200px;
-    margin-top: 80px;
-    overflow: hidden;
-    text-align: center;
-    padding-top: 25px;
-}
-.swiper-one-pic img{
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    padding: 5px;
-    border: 3px solid #abcdef;
-}
-.swiper-one-txt{
-    margin-top: 50px;
-    color: #fff;
-}
-#swiper-two{
-    width: 100%;
-    height: 100%;
-    background: #a58;
-    color: #fff;
-}
-#swiper-two .swiper-two-list{
-    width: 100%;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    flex-flow: row wrap;
-}
-#swiper-two .swiper-two-list .swiper-two-lists{
-    width: 50%;
-    height: 200px;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-#swiper-two .swiper-two-list .swiper-two-lists span{
-    display: block;
-    width: 100%;
-}
-#swiper-two .swiper-two-list .swiper-two-lists p{
-    width: 100%;
-}
-#swiper-three{
-    width: 100%;
-    height: 100%;
-    background: #859;
-}

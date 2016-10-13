@@ -37,7 +37,7 @@ var mySwiper = new Swiper ('.swiper-container', {
   	paginationCustomRender: function (swiper, current, total) {
     	return current + ' / ' + total;
   	},
-  	effect:'flip',
+  	//effect:'flip',
   	observer:true,
   	observeParents:true,
 	onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
@@ -75,7 +75,13 @@ var interval = setInterval(function(){
 	}
 },100);
 
-
-
+//swiper-three的加载
+$(".swiper-top a").tap(function(){	
+	//console.log($(this).index());
+	var index=$(this).index();
+	$.post('/api/state',{},function(response){
+		$(".swiper-bottom").html(response[index].name);
+	})
+})
 
 
