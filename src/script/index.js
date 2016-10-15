@@ -62,7 +62,6 @@ $("#footer div").tap(function(){
 	})
 })
 
-
 //预加载
 var interval = setInterval(function(){
 	if(document.readyState==='complete'){
@@ -85,3 +84,9 @@ $(".swiper-top a").tap(function(){
 })
 
 
+//swiper-three的各自运动
+var swiperThreeP=$(".swiper-three p");
+for(var i=0;i<swiperThreeP.length;i++){
+	var swiperThreePTime=(2*i)/10;
+	swiperThreeP.eq(i).attr({"class":"ani","swiper-animate-effect":"fadeIn","swiper-animate-duration":"0.2s","swiper-animate-delay":(swiperThreePTime+"s")});
+}

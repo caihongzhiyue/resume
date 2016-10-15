@@ -24,7 +24,9 @@
 	display: block;
     width: 100%;
     height:100%;
-    background:#EE82EE;
+    background:#EE82EE url(../images/swiper-loading.jpg) no-repeat; 
+    background-size: cover; 
+    background-position: 50% 50%; 
     padding-top: 200px;
     font-size: 50px;
     text-align: center;
@@ -65,23 +67,73 @@
 	.swiper-one-pic{
 	    width: 100%;
 	    height: 200px;
-	    margin-top: 80px;
-	    overflow: hidden;
-	    text-align: center;
-	    padding-top: 25px;
-	    img{
-		    width: 150px;
-		    height: 150px;
-		    border-radius: 50%;
-		    padding: 5px;
-		    border: 3px solid #abcdef;
+	    margin: 80px 0 50px;
+	    padding-top: 26px;
+	    position: relative;
+	    &:before{
+	    	content:"";
+	    	display: block;
+	    	position: absolute;
+	    	left: 50%;
+	    	margin-left: -88px;
+	    	top: 13px;
+	    	width: 150px;
+	    	height: 150px;
+	    	padding: 10px;
+	    	border-radius:50%;
+	    	border: 3px solid #abcdef;
+	    	animation: swiper-one-border 2s infinite linear 2s;
+	    	transform-origin:50% 50%;
+	    }
+	    em{
+	    	display: block;
+		    width:150px;
+		    height:150px;
+		    font-size:100px;
+		    position: absolute;
+	    	left: 50%;
+	    	margin-left: -75px;
+	    	top: 30px;
+	    	color: gold;
 		}
 	}
 	.swiper-one-txt{
-	    margin-top: 50px;
 	    color: #fff;
+	    padding: 20px 0;
 	}
-}	 
+	p{
+		width: 80%;
+		height:1px;
+		background: #fff;
+		margin:0 10%;
+		position: relative;
+		span{
+			position: absolute;
+			left: 0;
+			top: -5px;
+			width: 11px;
+			height: 11px;
+			border-radius:50%;
+			background: #fff;
+		}
+		b{
+			position: absolute;
+			right: 0;
+			top: -5px;
+			width: 11px;
+			height: 11px;
+			border-radius:50%;
+			background: #fff;
+		}
+	}
+}
+@keyframes swiper-one-border{
+	0%{transform:scale(1,1) skew(0deg)}
+	25%{transform:scale(1.2,1.2) skew(30deg)}
+	50%{transform:scale(1.5,1.5) skew(0deg)}
+	75%{transform:scale(1.2,1.2) skew(-30deg)}
+	100%{transform:scale(1,1) skew(0deg)}
+}
 h2{
     padding-top: 10px;
     color: #fff;
@@ -137,13 +189,75 @@ h2{
     .swiper-two-opacity{
 		width: 100%;
 	    height: 100%;
-	    background:url(../images/swiper-three-bg.jpg) no-repeat;
+	    background:url(../images/swiper-two-bg.jpg) no-repeat;
 	    background-size: cover; 
 	    background-position: 50% 50%; 
 	    background-origin: content-box;
 	}	
 }
 #swiper-three{
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    font-size:14px;
+    .swiper-three{
+    	width: 60%;
+    	margin:10% 22% 0 18%;	
+		display: flex;
+		flex-flow: row wrap;
+		align-items: center;
+		animation-iteration-count:infinite;
+    	p{
+			width: 33%;
+			height: 65px;
+			display: flex;
+			flex-flow: column;	
+			align-items: center;
+		    justify-content: center;
+		    em{
+		    	font-size:26px;
+		    	display: block;
+		    	width: 41px;
+		    	height: 30px;
+		    	background: #F38353;
+		    	border-radius: 5px;
+		    	text-align: center;
+		    	line-height: 30px;
+		    	color: #fff;
+		    }
+		    span{
+		    	font-size:12px;
+		    }
+    	}
+    }
+    .swiper-three-detail{
+    	padding-top: 20px;
+    	font-size:12px;
+    	color: #333;
+    	display: block;
+    	width: 50%;
+    	margin-left: 25%;
+    }
+}
+
+.swiper-three-bg{
+	width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    .swiper-three-opacity{
+		width: 100%;
+	    height: 100%;
+	    background:url(../images/swiper-three-bg.jpg) no-repeat;
+	    background-size: cover; 
+	    background-position: 50% 50%; 
+	    background-origin: content-box;
+	}	
+}
+
+
+#swiper-four{
     width: 100%;
     height: 100%;
     z-index: 2;
@@ -172,28 +286,45 @@ h2{
 			padding: 10px 10px 0;
 			line-height:20px;
 			color:#333;
-			animation:txt-animation 4s linear;
 			overflow: hidden;
     	}
     }
 }
-@keyframes txt-animation{
-	0% {height:0;}
-	100% {height:320px}
-}
-.swiper-three-bg{
+.swiper-four-bg{
 	width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     z-index: 1;
-    opacity:0.6;
-    .swiper-three-opacity{
+    .swiper-four-opacity{
 		width: 100%;
 	    height: 100%;
-	    background:url(../images/swiper-two-bg.jpg) no-repeat;
+	    background:url(../images/swiper-four-bg.jpg) no-repeat;
 	    background-size: cover; 
 	    background-position: 50% 50%; 
 	    background-origin: content-box;
 	}	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

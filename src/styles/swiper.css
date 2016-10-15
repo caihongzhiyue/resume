@@ -1,4 +1,4 @@
-html,body,h2，ul,li,h4,p{
+html,body,ul,li,h4,p{
     margin: 0;
     padding: 0;
 }
@@ -8,6 +8,9 @@ a{
     -webkit-touch-callout: none;
     -webkit-user-select: none;/*以上三个是处理移动端a标签tap时有阴影*/
     color: #333;  /*点击会变红，设置颜色后就不变了*/
+}
+ul{
+    list-style: none;
 }
 /*上面是样式重置*/
 html, body {

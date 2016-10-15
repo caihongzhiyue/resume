@@ -94,10 +94,10 @@ gulp.task('sass',function(){
 })
 
 //js模块化管理
-var jsFiles = ['./src/script/index.js'];
+var jsFiles = ['src/script/index.js'];
 
 //打包js
-gulp.task('js',function(){
+gulp.task('packjs',function(){
 	return gulp.src(jsFiles)
 	.pipe(named())
 	.pipe(webpack())
@@ -105,26 +105,63 @@ gulp.task('js',function(){
 	.pipe(gulp.dest('www/js'));
 })
 
+//下面这个操作比较损耗性能
+//版本控制  生产环境的文件
+var cssDistFiles = ['www/css/index.css'];
+var jsDistFiles = ['www/js/index.js'];
 
+//css的ver控制
+gulp.task('verCss',function(){
+	return gulp.src(cssDistFiles)
+	//生成一个版本
+	.pipe(rev())
+	//复制到指定的文件
+	.pipe(gulp.dest('www/css'))
+	//生成版本对应映射关系
+	.pipe(rev.manifest())
+	//将映射文件输出到指定目录
+	.pipe(gulp.dest('www/ver/css'));
+})
+
+//js的ver控制
+gulp.task('verJs',function(){
+	return gulp.src(jsDistFiles)
+	.pipe(rev())
+	.pipe(gulp.dest('www/js'))
+	.pipe(rev.manifest())
+	.pipe(gulp.dest('www/ver/js'));
+})
 
 //images的复制
 gulp.task('images',function(){
-	return gulp.src("./src/images/**")
+	return gulp.src("./src/images/*.*")
 	.pipe(gulp.dest('www/images'));
 })
 
 
+//对html文件的版本内容的替换
+gulp.task('html',function(){
+	return gulp.src(['www/ver/**/*.json','www/*.html'])
+	.pipe( revCollector({replaceReved:true}))
+	.pipe(gulp.dest('www/'))
+})
 //设置监控
 gulp.task('watch',function(){
-
-	gulp.watch('./src/images/**',['images']);
-
-	gulp.watch('./src/styles/**',['sass']);
-
-	gulp.watch('./src/script/**',['js']);
-
+	
 	gulp.watch('./src/index.html',['copy-index']);
 
+	gulp.watch('./src/images/*.*',['images']);
+	
+	var queue = sequence(300);
+	watch('src/script/**/*.js',{
+		name:'JS',
+		emitOnGlob:false,
+	},queue.getHandler('packjs','verJs','html'));
+
+	watch('src/styles/**/*.*',{
+		name:'CSS',
+		emitOnGlob:false,
+	},queue.getHandler('sass','verCss','html'));
 })
 
 //设置默认任务
