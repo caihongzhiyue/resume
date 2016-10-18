@@ -3,9 +3,8 @@ var $ = require('./components/zepto-modules/_custom');
 var IScroll = require('./components/iscroll/iscroll');
 
 
-
 $('#mainContent').hide();
-$(".swiper-container").hide();
+$(".swiper-container").show();
 
 $("#enter").tap(function(){
 	$('#mainContent').show();
@@ -19,7 +18,7 @@ $("#enter").tap(function(){
 		}
 		$("#scroller ul").html(html);
 	
-		var myScroll = new IScroll('#wrapper',{ mouseWheel:true});
+		var myScroll = new IScroll('#wrapper',{mouseWheel:true});
 		document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 	})
 
@@ -52,13 +51,35 @@ var mySwiper = new Swiper ('.swiper-container', {
 
 $("#footer div").tap(function(){
 	var apiTarget = $(this).attr('id');
-
 	$.post('/api/'+apiTarget,{},function(response){
 		var html=""
 		for(var i=0;i<response.length;i++){			
-			html+='<li>'+response[i].category+'</li>';
+			html+="<dl>";		
+			html+='<dt>'+response[i].category+'</dt>';
+			html+="</dl>";
 		}
-		$("#scroller ul").html(html);
+		$("#scroller").html(html);
+
+		var myScroll = new IScroll('#wrapper',{mouseWheel:true});
+		document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+	})
+})
+$("#skill").tap(function(){
+	var apiTarget = $(this).attr('id');
+	$.post('/api/'+apiTarget,{},function(response){
+		var html=""
+		for(var i=0;i<response.length;i++){			
+			html+="<dl>";
+			html+='<dt><img src="'+response[i].imagesrc+'"></dt>';		
+			html+='<dd>'+response[i].category+'</dd>';
+			html+='<dd>'+response[i].name+'</dd>';
+			html+='<dd><span>'+response[i].time+'</span><b>'+response[i].level+'</b></dd>';
+			html+="</dl>";
+		}
+		$("#scroller").html(html);
+
+		var myScroll = new IScroll('#wrapper',{mouseWheel:true});
+		document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 	})
 })
 
@@ -74,19 +95,12 @@ var interval = setInterval(function(){
 	}
 },100);
 
-//swiper-three的加载
-$(".swiper-top a").tap(function(){	
-	//console.log($(this).index());
-	var index=$(this).index();
-	$.post('/api/state',{},function(response){
-		$(".swiper-bottom").html(response[index].name);
-	})
-})
-
-
 //swiper-three的各自运动
 var swiperThreeP=$(".swiper-three p");
 for(var i=0;i<swiperThreeP.length;i++){
 	var swiperThreePTime=(2*i)/10;
-	swiperThreeP.eq(i).attr({"class":"ani","swiper-animate-effect":"fadeIn","swiper-animate-duration":"0.2s","swiper-animate-delay":(swiperThreePTime+"s")});
-}
+	swiperThreeP.eq(i).attr({"class":"ani","swiper-animate-effect":"rollIn","swiper-animate-duration":"0.2s","swiper-animate-delay":(swiperThreePTime+"s")});
+};
+
+
+

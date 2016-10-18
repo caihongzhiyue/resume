@@ -64,6 +64,20 @@
     background-size: cover; 
     background-position: 50% 50%; 
     background-origin: content-box;
+    .xuanzhuan{
+    	width: 53px;
+	    height: 53px;
+	    position: absolute;
+	    left: 50%;
+	    top: 30px;
+	    margin-left: -118px;
+	    background: url(../images/xuanzhuan.png) no-repeat;
+	    -webkit-animation: fcRotate 2.5s linear infinite;
+	    -moz-animation: fcRotate 2.5s linear infinite;
+	    -ms-animation: fcRotate 2.5s linear infinite;
+	    -o-animation: fcRotate 2.5s linear infinite;
+	    animation: fcRotate 2.5s linear infinite;
+    }
 	.swiper-one-pic{
 	    width: 100%;
 	    height: 200px;
@@ -81,7 +95,8 @@
 	    	height: 150px;
 	    	padding: 10px;
 	    	border-radius:50%;
-	    	border: 3px solid #abcdef;
+	    	border: 3px solid;
+	    	border-color:#FF69B4 #20B2AA #FF4500 #00FF7F;
 	    	animation: swiper-one-border 2s infinite linear 2s;
 	    	transform-origin:50% 50%;
 	    }
@@ -126,6 +141,13 @@
 			background: #fff;
 		}
 	}
+}
+@-webkit-keyframes fcRotate{
+	0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}
+	100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}
+}
+@keyframes fcRotate{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}
+100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}
 }
 @keyframes swiper-one-border{
 	0%{transform:scale(1,1) skew(0deg)}
@@ -306,7 +328,36 @@ h2{
 	}	
 }
 
-
+//iscroll布局
+#scroller{
+	width: 100%;
+	background:#1F334B url(../images/iscroll-bg.jpg) no-repeat;
+    background-size: cover; 
+    background-position: 50% 50%; 
+    background-origin: content-box;
+    color: #fff;
+	dl{
+		width: 100%;
+		height:140px;
+		border-bottom:1px #333 solid;
+		padding-top: 20px;
+		font-size:14px;
+		dt{
+			width: 20%;
+			text-align: center;
+			height: 90px;
+			float: left;
+		}
+		dd{
+			width: 80%;
+			float: right;
+			span{
+				display: inline-block;
+				padding-right: 10px;
+			}
+		}
+	}
+}
 
 
 
