@@ -51,46 +51,48 @@ body {
 	bottom: 45px;
 	left: 0;
 	width: 100%;
-	background: #ccc;
 	overflow: hidden;
+	background: #1F334B;
 }
 
+
+/*iscroll布局====skill布局*/
 #scroller {
-	position: absolute;
-	z-index: 1;
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
+  width: 100%;
+  background: #1F334B;
+  color: #fff; 
+}
+#scroller dl {
+    width: 100%;
+    height: 140px;
+    border-bottom: 1px #fff solid;
+    padding-top: 20px;
+    font-size: 13px; 
+}
+#scroller dl dt {
+	width: 20%;
+	text-align: center;
+	height: 90px;
+	float: left; 
+}
+#scroller dl dt img {
+	width: 50px;
+	border-radius: 8px;
+	background: #93A960; 
+}
+#scroller dl dd {
+	width: 75%;
+	padding-right: 5%;
+	float: right;
+	overflow: hidden;
+	word-break: break-all; 
+}
+/*iscroll布局====其他布局*/
+#scroller ul{
 	width: 100%;
-	-webkit-transform: translateZ(0);
-	-moz-transform: translateZ(0);
-	-ms-transform: translateZ(0);
-	-o-transform: translateZ(0);
-	transform: translateZ(0);
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	-webkit-text-size-adjust: none;
-	-moz-text-size-adjust: none;
-	-ms-text-size-adjust: none;
-	-o-text-size-adjust: none;
-	text-size-adjust: none;
 }
-
-#scroller ul {
-	list-style: none;
-	padding: 0;
-	margin: 0;
+#scroller ul li{
 	width: 100%;
-	text-align: left;
-}
+	height: 50px;
 
-#scroller li {
-	padding: 0 10px;
-	line-height: 30px;
-	border-bottom: 1px solid #ccc;
-	border-top: 1px solid #fff;
-	background-color: #fafafa;
-	font-size: 12px;
 }
-

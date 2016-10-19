@@ -84,7 +84,8 @@ gulp.task('webserver', function() {
 })
 
 gulp.task('copy-index',function(){
-	return gulp.src('./src/index.html').pipe(gulp.dest('./www'));
+	return gulp.src('./src/index.html')
+	.pipe(gulp.dest('./www'));
 })
 
 gulp.task('sass',function(){
@@ -105,14 +106,17 @@ gulp.task('js',function(){
 	.pipe(gulp.dest('www/js'));
 })
 
-
-
 //images的复制
 gulp.task('images',function(){
 	return gulp.src("./src/images/**")
 	.pipe(gulp.dest('www/images'));
 })
 
+
+gulp.task('json',function(){
+	return gulp.src("./mock/*.*")
+	.pipe(gulp.dest('www/mock'));
+})
 
 //设置监控
 gulp.task('watch',function(){
@@ -124,6 +128,8 @@ gulp.task('watch',function(){
 	gulp.watch('./src/script/**',['js']);
 
 	gulp.watch('./src/index.html',['copy-index']);
+
+	gulp.watch('./mock/*.*',['json']);
 
 })
 

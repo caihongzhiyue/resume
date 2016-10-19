@@ -2,50 +2,44 @@
 	{
 		"category":"规范",
 		"imagesrc":"images/html/html5.png",
-		"name":"HTML4、HTML5、ES5、ES6、CommonJS、CMD、AMD等",
-		"time":"1年",
-		"level":"了解"
+		"name":"HTML4/HTML5/ES5/ES6/CommonJS/CMD/AMD等",
+		"lastText": "了解互联网的一些常用规范的知识内容、了解互联网的发展及趋势"
 	},
 	{
 		"category":"框架",
-		"imagesrc":"images/html/jQuery.png",
-		"name":"Jquery、Zepto、AngularJs、Recat、Avalon等",
-		"time":"2年",
-		"level":"熟悉"
-	},
-	{
-		"category":"框架",
-		"imagesrc":"images/html/ionic.png",
-		"name":"Mui、Yo、Ionic等",
-		"time":"2年",
-		"level":"熟悉"
+		"imagesrc":"images/html/angularjs.png",
+		"name": "Angularjs/Easyui/Mui/Yo/Ionic/Flex等",
+		"lastText": "灵活运用众多的框架内容，包括纯界面框架、交互框架及软件集成应用框架"
 	},
 	{
 		"category":"类库",
-		"imagesrc":"images/html/bootstrap.png",
-		"name":"Bootstrap、Swiper、Iscroll等",
-		"time":"2年",
-		"level":"熟悉"
+		"imagesrc":"images/html/jquery.png",
+		"name":"Jquery/Zepto/BootStrap/Swiper/Iscroll/Echarts等",
+		"lastText": "熟练操作各种类库"
 	},
 	{
 		"category":"插件",
-		"imagesrc":"images/html/html5.png",
-		"name":"Jquery menu plugin、Jquery nav plugin、zepto等",
-		"time":"2年",
-		"level":"熟悉"
+		"imagesrc":"images/html/jqueryui.png",
+		"name": "Fullpage/Validate/lazyload/minigrid等",
+    	"lastText": "快速了解并能实现插件的效果"
 	},
 	{
-		"category":"布局",
-		"imagesrc":"images/html/html5.png",
-		"name":"Fixed、Fulid、Flex、Responsive",
-		"time":"3年",
-		"level":"精通"
+		"category":"混合式开发",
+		"imagesrc":"images/html/android.png",
+		"name": "webapp/webChat Jssdk/phonegap/cordova等",
+    	"lastText": "轻松实现轻应用开发、微信集成以及独立移动软件的混合式开发"
 	},
 	{
-		"category":"程序",
-		"imagesrc":"images/html/angularjs.png",
-		"name":"Javascript原生、Jquery及Zepto插件、AngularJs等",
-		"time":"3年",
-		"level":"精通"
+		"category":"工具",
+		"imagesrc":"images/html/firebug.png",
+		"name": "Fekit/gulp/Hbuilder/Atom/Sublime/git/GitHub/firebug等",
+    	"lastText": "对于前端自动化构建工具、代码编辑器、版本管理软件等在不同的项目里进行恰当的使用与整合"
+	},
+	{
+		"category":"CSS扩展语言",
+		"imagesrc":"images/html/css3.png",
+		"name":"Sass/Scss/PostCss/Less等",
+		"lastText": "熟练使用scss，了解其他类CSS扩展语言"
 	}
 ]
+

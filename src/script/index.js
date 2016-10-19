@@ -37,19 +37,27 @@ var mySwiper = new Swiper ('.swiper-container', {
 //使用  flip 效果还是有点小BUG，把页面拖到中间就会是运动持续下去
 
 $("#footer div").tap(function(){
+	$("#scroller").html("");
 	var apiTarget = $(this).attr('id');
-	$.post('../mock/'+apiTarget+'.json',{},function(response){
-		var html=""
-		for(var i=0;i<response.length;i++){			
-			html+="<dl>";		
-			html+='<dt>'+response[i].category+'</dt>';
-			html+="</dl>";
-		}
-		$("#scroller").html(html);
+	$("#header").text(apiTarget.toLocaleUpperCase());
+	if(apiTarget !=="skill"){
+		$.ajax({url:'../mock/'+apiTarget+'.json',
+			dataType:"json",
+			success:function(response){
+				console.log(response);
+				var html=""
+				for(var i=0;i<response.length;i++){			
+					html+="<ul>";		
+					html+='<li>'+response[i].category+'</li>';
+					html+="</ul>";
+				}
+				$("#scroller").html(html);
 
-		var myScroll = new IScroll('#wrapper',{mouseWheel:true});
-		document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-	})
+				var myScroll = new IScroll('#wrapper',{mouseWheel:true});
+				document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+			}
+		})
+	}
 })
 $("#skill").tap(function(){
 	postSkill();
@@ -75,20 +83,25 @@ for(var i=0;i<swiperThreeP.length;i++){
 };
 
 function postSkill(){
-	$.post('../mock/skill.json',{},function(response){
-		var html=""
-		for(var i=0;i<response.length;i++){			
-			html+="<dl>";
-			html+='<dt><img src="'+response[i].imagesrc+'"></dt>';		
-			html+='<dd>'+response[i].category+'</dd>';
-			html+='<dd>'+response[i].name+'</dd>';
-			html+='<dd><span>'+response[i].time+'</span><b>'+response[i].level+'</b></dd>';
-			html+="</dl>";
-		}
-		$("#scroller").html(html);
+	$("#scroller").html("");
+	$.ajax({url:'../mock/skill.json',
+		dataType:"json",
+		success:function(response){
+			var html=""
+			for(var i=0;i<response.length;i++){			
+				html+="<dl>";
+				html+='<dt><img src="'+response[i].imagesrc+'"></dt>';		
+				html+='<dd style="font-size:18px;font-weight:900">'+response[i].category+'</dd>';
+				html+='<dd>'+response[i].name+'</dd>';
+				html+='<dd>'+response[i].lastText+'</dd>';
+				html+="</dl>";
+			}
+			$("#scroller").html(html);
 
-		var myScroll = new IScroll('#wrapper',{mouseWheel:true});
-		document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+			var myScroll = new IScroll('#wrapper',{mouseWheel:true});
+			document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+		}
 	})
 }
+
 

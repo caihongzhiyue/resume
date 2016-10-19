@@ -1,11 +1,20 @@
 ﻿[
 	{
-		"category":"企业网站",
-		"name":"和瑞控股",
-		"url":"http://www.horays.com/",
-		"image":"images/horays.png",
-		"description":"和瑞控股公司的官方网站，详细介绍了和瑞控股公司的主要情况",
-		"detail":"项目耗时3周，主要处理前端页面及程序嵌套，当时并未要求移动端适配，故该网站只适应于PC端应用",
-		"tech":"Html、Css2、Coldfusion等"
+		"category":"购物网站",
+		"name":"贝贝网",
+		"url":"http://www.beibei.com/",
+		"image":"images/index-page.jpg",
+		"description":"",
+		"detail":"",
+		"tech":""
+	},
+	{
+		"category":"购物网站",
+		"name":"贝贝网",
+		"url":"http://www.beibei.com/",
+		"image":"images/index.jpg",
+		"description":"",
+		"detail":"",
+		"tech":""
 	}
 ]
