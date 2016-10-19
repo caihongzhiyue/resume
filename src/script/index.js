@@ -9,20 +9,7 @@ $(".swiper-container").show();
 $("#enter").tap(function(){
 	$('#mainContent').show();
 	$(".swiper-container").hide();
-
-	$.post('/api/skill',{},function(response){
-		console.log(response);
-		var html=""
-		for(var i=0;i<response.length;i++){			
-			html+='<li>'+response[i].name+'</li>';
-		}
-		$("#scroller ul").html(html);
-	
-		var myScroll = new IScroll('#wrapper',{mouseWheel:true});
-		document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-	})
-
-	
+	postSkill();
 })
 
 //引入swiper
@@ -51,7 +38,7 @@ var mySwiper = new Swiper ('.swiper-container', {
 
 $("#footer div").tap(function(){
 	var apiTarget = $(this).attr('id');
-	$.post('/api/'+apiTarget,{},function(response){
+	$.post('../mock/'+apiTarget+'.json',{},function(response){
 		var html=""
 		for(var i=0;i<response.length;i++){			
 			html+="<dl>";		
@@ -65,22 +52,7 @@ $("#footer div").tap(function(){
 	})
 })
 $("#skill").tap(function(){
-	var apiTarget = $(this).attr('id');
-	$.post('/api/'+apiTarget,{},function(response){
-		var html=""
-		for(var i=0;i<response.length;i++){			
-			html+="<dl>";
-			html+='<dt><img src="'+response[i].imagesrc+'"></dt>';		
-			html+='<dd>'+response[i].category+'</dd>';
-			html+='<dd>'+response[i].name+'</dd>';
-			html+='<dd><span>'+response[i].time+'</span><b>'+response[i].level+'</b></dd>';
-			html+="</dl>";
-		}
-		$("#scroller").html(html);
-
-		var myScroll = new IScroll('#wrapper',{mouseWheel:true});
-		document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-	})
+	postSkill();
 })
 
 //预加载
@@ -102,5 +74,21 @@ for(var i=0;i<swiperThreeP.length;i++){
 	swiperThreeP.eq(i).attr({"class":"ani","swiper-animate-effect":"rollIn","swiper-animate-duration":"0.2s","swiper-animate-delay":(swiperThreePTime+"s")});
 };
 
+function postSkill(){
+	$.post('../mock/skill.json',{},function(response){
+		var html=""
+		for(var i=0;i<response.length;i++){			
+			html+="<dl>";
+			html+='<dt><img src="'+response[i].imagesrc+'"></dt>';		
+			html+='<dd>'+response[i].category+'</dd>';
+			html+='<dd>'+response[i].name+'</dd>';
+			html+='<dd><span>'+response[i].time+'</span><b>'+response[i].level+'</b></dd>';
+			html+="</dl>";
+		}
+		$("#scroller").html(html);
 
+		var myScroll = new IScroll('#wrapper',{mouseWheel:true});
+		document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+	})
+}
 
