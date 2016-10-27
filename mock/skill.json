@@ -14,7 +14,7 @@
 	{
 		"category":"类库",
 		"imagesrc":"images/html/jquery.png",
-		"name":"Jquery/Zepto/BootStrap/Swiper/Iscroll/Echarts等",
+		"name":"Jquery/Zepto/Swiper/Iscroll/Echarts等",
 		"lastText": "熟练操作各种类库"
 	},
 	{
@@ -32,7 +32,7 @@
 	{
 		"category":"工具",
 		"imagesrc":"images/html/firebug.png",
-		"name": "Fekit/gulp/Hbuilder/Atom/Sublime/git/GitHub/firebug等",
+		"name": "gulp/Hbuilder/Atom/Sublime/git/GitHub/firebug等",
     	"lastText": "对于前端自动化构建工具、代码编辑器、版本管理软件等在不同的项目里进行恰当的使用与整合"
 	},
 	{
