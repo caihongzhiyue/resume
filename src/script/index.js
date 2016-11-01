@@ -37,11 +37,12 @@ var mySwiper = new Swiper ('.swiper-container', {
 //使用  flip 效果还是有点小BUG，把页面拖到中间就会是运动持续下去
 
 $("#footer div").tap(function(){
-	$("#scroller").html("");
+	$("#scroller").show();
+	$("#interestCanvas").hide();
 	var apiTarget = $(this).attr('id');
 	$("#header").text(apiTarget.toLocaleUpperCase());
-	if(apiTarget !=="skill"){
-		$.ajax({url:'../mock/'+apiTarget+'.json',
+	if(apiTarget =="project" || apiTarget =="work"){
+		$.ajax({url:'./mock/'+apiTarget+'.json',
 			dataType:"json",
 			success:function(response){
 				console.log(response);
@@ -51,6 +52,69 @@ $("#footer div").tap(function(){
 					html+='<li>'+response[i].category+'</li>';
 					html+="</ul>";
 				}
+				$("#scroller").html(html);
+
+				var myScroll = new IScroll('#wrapper',{mouseWheel:true});
+				document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+			}
+		})
+	}
+	//interest
+	if(apiTarget =="interest"){
+		$("#scroller").hide();
+		$("#interestCanvas").show();
+		var canEle=document.getElementById('interestCanvas');
+		var ctx=canEle.getContext("2d");
+		var width=400;
+		var height=400;
+		var colorArr=["#8A2BE2","#7FFF00","#6495ED","#FF7F50","#DC143C","#FF1493","#ADFF2F","#FF69B4"];
+		var textArr=[
+			"我喜欢阅读",
+			"喜欢打乒乓球",
+			"我还喜欢听音乐",
+			"我更加喜欢敲代码",
+			"我爱好广泛",
+			"看动漫",
+			"多谢您的关注",
+			"做事情全心全意",
+			"活到老 学到老",
+			"志之难也 不在胜人 在自胜",
+			"没有一劳永逸的开始；也没有无法拯救的结束。人生中，你需要把握的是：该开始的，要义无反顾地开始；该结束的，就干净利落地结束。",
+			"努力 加油"
+		]
+		canEle.width=width;
+		canEle.height=height;
+		var image=new Image();
+
+		ctx.font = "25px Courier New";
+		var numArrL=[80,100,5,300,500,430];//初始的X
+		var numArrT=[80,100,20,300,380,210];//初始的Y
+		setInterval(function(){
+		ctx.clearRect(0,0,canEle.width,canEle.height);
+		ctx.save();
+		for(var j=0;j<textArr.length;j++){
+			numArrL[j]-=(j+1)*0.6;
+			ctx.fillStyle = colorArr[j]
+			ctx.fillText(textArr[j],numArrL[j],numArrT[j]);
+		}
+		for(var i=0;i<textArr.length;i++){
+			if(numArrL[i]<=-500){
+				numArrL[i]=canEle.width;
+			}
+		}
+		ctx.restore();
+		},20)
+	}
+	if(apiTarget =="mine"){
+		$.ajax({url:'./mock/'+apiTarget+'.json',
+			dataType:"json",
+			success:function(response){
+				console.log(response);
+				var html="<div class='mine'>"
+				for(var i=0;i<response.length;i++){			
+					html+='<p>'+response[i].category+'</p>';
+				}
+				html+="</div>";
 				$("#scroller").html(html);
 
 				var myScroll = new IScroll('#wrapper',{mouseWheel:true});
@@ -83,8 +147,7 @@ for(var i=0;i<swiperThreeP.length;i++){
 };
 
 function postSkill(){
-	$("#scroller").html("");
-	$.ajax({url:'../mock/skill.json',
+	$.ajax({url:'./mock/skill.json',
 		dataType:"json",
 		success:function(response){
 			var html=""
@@ -103,5 +166,9 @@ function postSkill(){
 		}
 	})
 }
+
+
+
+
 
 
