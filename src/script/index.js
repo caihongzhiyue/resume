@@ -46,12 +46,15 @@ $("#footer div").tap(function(){
 			dataType:"json",
 			success:function(response){
 				console.log(response);
-				var html=""
+				var html="<div class='project'>"
 				for(var i=0;i<response.length;i++){			
-					html+="<ul>";		
-					html+='<li>'+response[i].category+'</li>';
-					html+="</ul>";
+					html+='<h5>'+response[i].name+'</h5>';
+					html+='<div class="projectImg"><img src="'+response[i].image+'" /></div>';
+					html+='<div class="projectDec">'+response[i].description+'</div>';
+					html+='<div>'+response[i].skill+'</div>';
+					html+='<div>'+response[i].total+'</div>';
 				}
+				html+="</div>";
 				$("#scroller").html(html);
 
 				var myScroll = new IScroll('#wrapper',{mouseWheel:true});
@@ -79,7 +82,8 @@ $("#footer div").tap(function(){
 			"做事情全心全意",
 			"活到老 学到老",
 			"志之难也 不在胜人 在自胜",
-			"没有一劳永逸的开始；也没有无法拯救的结束。人生中，你需要把握的是：该开始的，要义无反顾地开始；该结束的，就干净利落地结束。",
+			"没有一劳永逸的开始；也没有无法拯救的结束。",
+			"我要做极客",
 			"努力 加油"
 		]
 		canEle.width=width;

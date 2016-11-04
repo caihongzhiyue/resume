@@ -104,3 +104,34 @@ body {
 #scroller .mine p{
 	padding-top: 10px;
 }
+/*project*/
+#scroller .project{
+	padding: 10px;
+	width: 100%;
+	box-sizing: border-box;
+}
+#scroller .project h5{
+	width: 100%;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	color: #fff;
+	font-size: 20px;
+}
+#scroller .project .projectImg{
+	padding-top: 10px;
+	width: 100%;
+	text-align: center;
+	overflow: hidden;
+}
+#scroller .project .projectImg img{
+	width: 80%;
+}
+#scroller .project .projectTxt{
+	font-size: 20px;
+	padding: 10px 0;
+	font-weight: 900;
+}
+#scroller .project .projectDec{
+	text-indent: 20px;
+}
